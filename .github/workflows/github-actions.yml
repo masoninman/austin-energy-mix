@@ -1,4 +1,4 @@
-name: Read Austin Energy mix every 15 minutes, save to txt in GitHub
+name: main
 
 on:
   workflow_dispatch:

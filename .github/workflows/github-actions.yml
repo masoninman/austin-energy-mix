@@ -21,8 +21,8 @@ jobs:
         
         - name: Commit file
           run: | 
-          git config --local user.email "austin_energy_mix_bot@example.com"
-          git config --local user.name "Austin Energy Mix Bot"
-          git add out.csv
-          git commit -m "gh actions add out.csv"
-          git push
+            git config --local user.email "austin_energy_mix_bot@example.com"
+            git config --local user.name "Austin Energy Mix Bot"
+            git add out.csv
+            git commit -m "gh actions add out.csv"
+            git push

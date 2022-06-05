@@ -3,22 +3,30 @@ name: Read Austin Energy mix every 15 minutes, save to txt in GitHub
 on:
   schedule:
     - cron "*/15 * * * *"
-    
+
+# env: create settings for this? see jcdan's post
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    # steps below based on: https://github.com/GuillaumeFalourd/poc-github-actions/blob/main/.github/workflows/03-python-script-workflow.yml
+    # arrived at from: https://stackoverflow.com/questions/70458458/how-do-i-simply-run-a-python-script-from-github-repo-with-actions
     steps:
         - name: Checkout repository content
-          uses: actions/checkout@v2 # Checkout the repository content to github runner.
+          uses: actions/checkout@v3 # Checkout the repository content to github runner.
 
-        - name: Setup Python Version
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.8 # Install the python version needed
+        - name: Hello World
+          run: python hello_world.py
+          shell: sh
 
-        - name: Install Python dependencies
-          run: python -m pip install --upgrade pip requests
-
-        - name: Execute Python script # Run the run.py to get the latest data
-          run: python run.py
+        # - name: Setup Python Version
+        #   uses: actions/setup-python@v3
+        #   with:
+        #     python-version: 3.9 # Install the python version needed
+        #
+        # - name: Install Python dependencies
+        #   run: python -m pip install --upgrade pip requests
+        #
+        # - name: Execute Python script # Run the run.py to get the latest data
+        #   run: python run.py

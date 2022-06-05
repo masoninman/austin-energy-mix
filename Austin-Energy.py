@@ -15,7 +15,7 @@ new_row = f"\n{data_datetime}"
 for energy_type in ['BIO', 'SOLAR', 'WIND', 'NON-RENEWABLE']:
     type_split_str = f'"load-percent {energy_type}", "'
     energy_pct_str = r.text.split(type_split_str)[-1].split('"', 1)[0]
-    new_row += energy_pct_str
+    new_row += f",{energy_pct_str}"
 
 print(new_row)
 

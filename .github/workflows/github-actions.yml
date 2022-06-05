@@ -20,4 +20,9 @@ jobs:
           run: python Austin-Energy.py
         
         - name: Commit file
-          run: git add out.csv && git commit -m "gh actions add out.csv" && git push
+          run: | 
+          git config --local user.email "austin_energy_mix_bot@example.com"
+          git config --local user.name "Austin Energy Mix Bot"
+          git add out.csv
+          git commit -m "gh actions add out.csv"
+          git push

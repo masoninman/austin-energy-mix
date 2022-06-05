@@ -10,12 +10,14 @@ main_split_str = "title: 'Total Austin Energy Load/Demand - "
 data_datetime = r.text.split(main_split_str)[-1].split("',")[0]
 data_datetime = data_datetime.replace(',', '')
 
-new_row = [data_datetime]
+new_row = f"\n{data_datetime}"
 
 for energy_type in ['BIO', 'SOLAR', 'WIND', 'NON-RENEWABLE']:
     type_split_str = f'"load-percent {energy_type}", "'
     energy_pct_str = r.text.split(type_split_str)[-1].split('"', 1)[0]
-    energy_fract = float(energy_pct_str)/100
-    new_row.append(energy_fract)
+    new_row += energy_pct_str
 
-print(','.join([str(x) for x in new_row]))
+print(new_row)
+
+with open("out.csv", "a") as f:
+    f.write(new_row)

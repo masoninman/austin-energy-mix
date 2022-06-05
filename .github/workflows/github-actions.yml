@@ -1,5 +1,12 @@
 name: Read Austin Energy mix every 15 minutes, save to txt in GitHub
 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
 # on:
 #   schedule:
 #     - cron "*/15 * * * *"

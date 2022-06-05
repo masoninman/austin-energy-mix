@@ -1,8 +1,8 @@
 name: Read Austin Energy mix every 15 minutes, save to txt in GitHub
 
-on:
-  schedule:
-    - cron "*/15 * * * *"
+# on:
+#   schedule:
+#     - cron "*/15 * * * *"
 
 # env: create settings for this? see jcdan's post
 

@@ -2,10 +2,6 @@ name: main
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
   schedule:
     - cron: '*/10 * * * *'
 
@@ -22,3 +18,6 @@ jobs:
        
         - name: Get data from austin energy
           run: python Austin-Energy.py
+        
+        - name: Commit file
+          run: git add out.csv && git commit -m "gh actions add out.csv" && git push
